@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#current-display {
+    margin: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 200px;
+    padding-bottom: 20px;
+}
+
+#current-display > h2 {
+    padding: 20px 0 10px;
+    margin: 0 30px 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+#forecast-display {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#forecast-display > div {
+    border: lightgray 1px solid;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px 0;
+}
