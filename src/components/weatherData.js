@@ -16,9 +16,10 @@ const apiInfo = {
 
 const weather = {
     displayUnit: 'celsius',
-    current: {},
-    forecast: {},
+    data: [],
 };
+
+const getWeatherData = () => weather;
 
 const updateWeatherData = async () => {
     try {
@@ -33,9 +34,14 @@ const updateWeatherData = async () => {
 
         currentWeather = processCurrentData(currentWeather);
         forecastWeather = processForecastData(forecastWeather);
+
+        const combinedWeather = [];
+        combinedWeather.push(currentWeather);
+        forecastWeather.forEach((item) => {
+            combinedWeather.push(item);
+        });
         
-        weather.current = currentWeather;
-        weather.forecast = forecastWeather;
+        weather.data = combinedWeather;
         
         return weather;
     } catch (err) {
@@ -43,14 +49,14 @@ const updateWeatherData = async () => {
     }
 };
 
-const getWeatherData = () => weather;
-
 const changeTempUnit = () => {
     if (weather.displayUnit === 'celsius') {
         weather.displayUnit = 'fahrenheit';
     } else {
         weather.displayUnit = 'celsius';
     }
+
+    return weather.displayUnit;
 };
 
 export { updateWeatherData, getWeatherData, changeTempUnit };

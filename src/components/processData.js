@@ -12,8 +12,10 @@ const processCurrentData = (json) => {
     const { name: location } = json;
     const { temp } = json.main;
     const { main: weather, icon } = json.weather[0];
+    const day = 'Today';
 
     return {
+        day,
         location,
         temp: tempConversion(temp),
         weather,
@@ -27,14 +29,39 @@ const processForecastData = (json) => {
     const filteredData = [];
     filteredJson.forEach((data) => {
         const { dt_txt: date } = data;
-        let { temp } = data.main;
+        const { temp } = data.main;
         const { main: weather, icon } = data.weather[0];
 
-        temp = tempConversion(temp);
+        const forecastDay = new Date(date).getDay();
+        let day;
+        switch (forecastDay) {
+            case 0:
+                day = 'Sunday';
+                break;
+            case 1:
+                day = 'Monday';
+                break;
+            case 2:
+                day = 'Tuesday';
+                break;
+            case 3:
+                day = 'Wednesday';
+                break;
+            case 4:
+                day = 'Thursday';
+                break;
+            case 5:
+                day = 'Friday';
+                break;
+            case 6:
+                day = 'Saturday';
+                break;
+            default:
+        }
 
         filteredData.push({
-            date,
-            temp,
+            day,
+            temp: tempConversion(temp),
             weather,
             icon,
         });
