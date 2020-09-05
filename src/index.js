@@ -2,6 +2,7 @@ import './style.css';
 import { renderWeather, changeTempDisplay, renderUnitBtn } from './components/render';
 import { updateWeatherData, getWeatherData, changeTempUnit } from './components/weatherData';
 import loadBackground from './components/background';
+import handleError from './components/handleError';
 
 const initLoad = async () => {
     try {
@@ -10,7 +11,7 @@ const initLoad = async () => {
         renderUnitBtn(weatherData.displayUnit);
         loadBackground(weatherData.data[0].location);
     } catch (err) {
-        console.log(err);
+        handleError(err);
     }
 };
 
@@ -30,7 +31,7 @@ const handleSearch = async (e) => {
         renderWeather(weatherData.data, weatherData.displayUnit);
         loadBackground(weatherData.data[0].location);
     } catch (err) {
-        console.log(err);
+        handleError(err);
     }
 };
 
