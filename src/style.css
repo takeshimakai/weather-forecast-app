@@ -19,6 +19,16 @@
     margin-top: 20px;
 }
 
+#controls {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#unitBtn {
+    margin-left: 5px;
+}
+
 #current-display {
     background-color: white;
     margin: auto;
