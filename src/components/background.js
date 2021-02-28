@@ -2,7 +2,7 @@ import fetchData from './fetchData';
 
 const loadBackground = async (location) => {
     try {
-        const url = `http://api.giphy.com/v1/gifs/search?q=${location}&api_key=Mt4nTlonthoBKxLA5ZFtxJ6ePcpw4b2E&limit=5`;
+        const url = `https://api.giphy.com/v1/gifs/search?q=${location}&api_key=Mt4nTlonthoBKxLA5ZFtxJ6ePcpw4b2E&limit=5`;
         const fetchedData = await fetchData(url);
     
         const randomIndex = Math.floor(Math.random() * 5);
